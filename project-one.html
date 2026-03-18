@@ -7,12 +7,103 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="project.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --header-bg:   #2b1f14;
+      --header-text: #f0e6d3;
+      --header-muted:#c4a882;
+      --bg:          #f5ede0;
+      --bg-alt:      #ede0cc;
+      --text:        #2b1f14;
+      --muted:       #7a6249;
+      --accent:      #b5651d;
+      --accent-dark: #8b4513;
+      --border:      #d4b896;
+      --font-sans:   'Lato', sans-serif;
+      --font-serif:  'Libre Baskerville', serif;
+      --max-w:       1100px;
+      --radius:      6px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2rem; background: var(--header-bg); border-bottom: 3px solid var(--accent); box-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+    .nav-logo { font-family: var(--font-serif); font-size: 1.15rem; color: var(--header-text); font-style: italic; }
+    nav ul { display: flex; gap: 2rem; }
+    nav ul a { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--header-muted); transition: color 0.2s; }
+    nav ul a:hover { color: var(--accent); }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 200; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--header-text); transition: transform 0.3s, opacity 0.3s; transform-origin: center; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* BACK */
+    .back-bar { padding: 0.85rem 2rem; background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+    .back-link { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+    .back-link:hover { color: var(--accent-dark); }
+
+    /* PROJECT HERO */
+    .project-hero { padding: 5rem 2rem 4rem; background: var(--header-bg); border-bottom: 4px solid var(--accent); }
+    .project-hero-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .project-tag { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--accent); color: #fff; padding: 0.2rem 0.65rem; border-radius: 3px; }
+    .project-year { font-size: 0.82rem; color: var(--header-muted); font-style: italic; }
+    .project-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: var(--header-text); }
+    .project-tagline { font-size: 1.1rem; color: var(--header-muted); max-width: 560px; margin-bottom: 2rem; font-style: italic; }
+    .project-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 0.75rem 1.75rem; background: var(--accent); color: #fff; border: 2px solid var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius); transition: background 0.2s, border-color 0.2s; }
+    .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .btn-ghost { background: transparent; border-color: var(--header-muted); color: var(--header-muted); }
+    .btn-ghost:hover { background: rgba(181,101,29,0.15); border-color: var(--accent); color: var(--accent); }
+
+    /* SCREENSHOT */
+    .screenshot-wrap { padding: 2.5rem 2rem; background: var(--bg-alt); border-bottom: 1px solid var(--border); }
+    .screenshot-placeholder { width: 100%; aspect-ratio: 16/9; border: 2px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.82rem; font-style: italic; background: var(--bg); }
+
+    /* PROJECT BODY */
+    .project-body { padding: 4rem 2rem; background: var(--bg); }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .project-layout { display: grid; grid-template-columns: 200px 1fr; gap: 4rem; }
+    .project-details { display: flex; flex-direction: column; gap: 1.75rem; }
+    .detail-label { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.4rem; border-left: 2px solid var(--accent); padding-left: 0.5rem; }
+    .detail-value { font-size: 0.95rem; color: var(--text); padding-left: 0.75rem; }
+    .tech-list { display: flex; flex-direction: column; gap: 0.3rem; padding-left: 0.75rem; }
+    .tech-list li { font-size: 0.9rem; color: var(--text); }
+    .project-writeup h2 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--text); padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+    .project-writeup h2:first-child { margin-top: 0; }
+    .project-writeup p { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.8; }
+
+    /* NEXT PROJECT */
+    .next-project { padding: 3rem 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); }
+    .next-project .detail-label { border-left-color: var(--header-muted); color: var(--header-muted); }
+    .next-link { font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; color: var(--header-text); border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; display: inline-block; margin-top: 0.5rem; font-style: italic; }
+    .next-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* FOOTER */
+    footer { padding: 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); text-align: center; font-size: 0.82rem; color: var(--header-muted); font-style: italic; }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: fixed; inset: 0; background: var(--header-bg); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; z-index: 150; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.2rem; font-family: var(--font-serif); color: var(--header-text); font-style: italic; }
+      .project-hero { padding: 3rem 1.5rem 2.5rem; }
+      .project-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .project-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+      .project-body { padding: 2.5rem 1.5rem; }
+      .next-project { padding: 2rem 1.5rem; }
+      .project-cta { flex-direction: column; }
+      .project-cta .btn { text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <span class="nav-logo">YN</span>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -25,12 +116,10 @@
     </ul>
   </nav>
 
-  <!-- BACK -->
   <div class="back-bar">
     <a href="index.html#projects" class="back-link">← Back to projects</a>
   </div>
 
-  <!-- HERO -->
   <header class="project-hero">
     <div class="container">
       <div class="project-hero-meta">
@@ -46,23 +135,18 @@
     </div>
   </header>
 
-  <!-- SCREENSHOT PLACEHOLDER -->
   <div class="screenshot-wrap">
     <div class="container">
       <div class="screenshot-placeholder">
         <span>Screenshot / Preview Image</span>
-        <!-- Replace with: <img src="images/project-one.png" alt="Project One screenshot" /> -->
       </div>
     </div>
   </div>
 
-  <!-- CONTENT -->
   <main class="project-body">
     <div class="container project-layout">
-
-      <!-- LEFT: details -->
       <aside class="project-details">
-        <div class="detail-block">
+        <div>
           <p class="detail-label">Tech Stack</p>
           <ul class="tech-list">
             <li>HTML / CSS</li>
@@ -70,45 +154,21 @@
             <li>Python</li>
           </ul>
         </div>
-        <div class="detail-block">
-          <p class="detail-label">Type</p>
-          <p class="detail-value">Personal project</p>
-        </div>
-        <div class="detail-block">
-          <p class="detail-label">Year</p>
-          <p class="detail-value">2025</p>
-        </div>
-        <div class="detail-block">
-          <p class="detail-label">Status</p>
-          <p class="detail-value">Live</p>
-        </div>
+        <div><p class="detail-label">Type</p><p class="detail-value">Personal project</p></div>
+        <div><p class="detail-label">Year</p><p class="detail-value">2025</p></div>
+        <div><p class="detail-label">Status</p><p class="detail-value">Live</p></div>
       </aside>
-
-      <!-- RIGHT: write-up -->
       <article class="project-writeup">
         <h2>Overview</h2>
-        <p>
-          Describe what this project is and what problem it solves. Keep it
-          conversational — write it like you're explaining it to a friend.
-        </p>
-
+        <p>Describe what this project is and what problem it solves. Keep it conversational — write it like you're explaining it to a friend.</p>
         <h2>Why I built it</h2>
-        <p>
-          Explain your motivation. Was it to learn a new skill? Solve a personal
-          problem? A school or work project? This is where your personality comes through.
-        </p>
-
+        <p>Explain your motivation. Was it to learn a new skill? Solve a personal problem? A school or work project?</p>
         <h2>What I learned</h2>
-        <p>
-          Talk about the challenges you faced and what you took away from building
-          this. Recruiters and collaborators love seeing your thought process.
-        </p>
+        <p>Talk about the challenges you faced and what you took away from building this.</p>
       </article>
-
     </div>
   </main>
 
-  <!-- NEXT PROJECT -->
   <div class="next-project">
     <div class="container">
       <p class="detail-label">Next project</p>
@@ -116,10 +176,16 @@
     </div>
   </div>
 
-  <footer>
-    <p>© 2026 Your Name. Built by hand.</p>
-  </footer>
+  <footer><p>© 2026 Your Name. Built by hand.</p></footer>
 
-  <script src="script.js"></script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+  </script>
 </body>
 </html>
