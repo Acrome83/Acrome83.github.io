@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clayton Adams — Portfolio</title>
+  <title>Your Name — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +11,10 @@
   <!-- NAV -->
   <nav>
     <span class="nav-logo">YN</span>
-    <ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -22,8 +25,8 @@
   <section class="hero">
     <div class="hero-inner">
       <p class="hero-eyebrow">Hello, I'm</p>
-      <h1>Clayton Adams</h1>
-      <p class="hero-sub">Developer &amp; Designer based in Milton, KY</p>
+      <h1>Your Name</h1>
+      <p class="hero-sub">Developer &amp; Designer based in [City]</p>
       <a href="#projects" class="btn">View my work</a>
     </div>
   </section>
@@ -34,11 +37,11 @@
       <div class="section-label">About</div>
       <div class="section-content">
         <p>
-          I'm a software developer who cares about clean code and thoughtful design.
+          I'm a developer who cares about clean code and thoughtful design.
           I enjoy building things that are simple, fast, and useful.
         </p>
         <p>
-          When I'm not coding I'm playing video games, practicing my instrument, or watching a youtube video.
+          When I'm not coding I'm [hobby], [hobby], or reading about [interest].
         </p>
         <ul class="skills">
           <li>HTML / CSS</li>
@@ -58,42 +61,45 @@
       <div class="section-label">Projects</div>
       <div class="project-grid">
 
-        <article class="project-card">
+        <article class="project-card" onclick="location.href='project-one.html'" style="cursor:pointer;">
           <div class="project-meta">
             <span class="project-tag">Web</span>
             <span class="project-year">2025</span>
           </div>
-          <h3>What i specialize/plan to do</h3>
-          <p>plans for the future and what i can already do.</p>
+          <h3><a href="project-one.html">Project One</a></h3>
+          <p>A short description of what this project does and why you built it.</p>
           <div class="project-links">
-            <a href="#" class="link-arrow">Live site ↗</a>
-            <a href="#" class="link-arrow">GitHub ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">Live site ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="project-one.html" class="link-arrow">Read more →</a>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" onclick="location.href='project-two.html'" style="cursor:pointer;">
           <div class="project-meta">
             <span class="project-tag">App</span>
             <span class="project-year">2025</span>
           </div>
-          <h3>Project Two</h3>
+          <h3><a href="project-two.html">Project Two</a></h3>
           <p>A short description of what this project does and why you built it.</p>
           <div class="project-links">
-            <a href="#" class="link-arrow">Live site ↗</a>
-            <a href="#" class="link-arrow">GitHub ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">Live site ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="project-two.html" class="link-arrow">Read more →</a>
           </div>
         </article>
 
-        <article class="project-card">
+        <article class="project-card" onclick="location.href='project-three.html'" style="cursor:pointer;">
           <div class="project-meta">
             <span class="project-tag">Tool</span>
             <span class="project-year">2024</span>
           </div>
-          <h3>Project Three</h3>
+          <h3><a href="project-three.html">Project Three</a></h3>
           <p>A short description of what this project does and why you built it.</p>
           <div class="project-links">
-            <a href="#" class="link-arrow">Live site ↗</a>
-            <a href="#" class="link-arrow">GitHub ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">Live site ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="project-three.html" class="link-arrow">Read more →</a>
           </div>
         </article>
 
@@ -108,7 +114,7 @@
       <div class="section-content">
         <p>I'm open to opportunities, collaborations, or just a chat.</p>
         <div class="contact-links">
-          <a href="mailto:you@email.com" class="link-arrow">you@email.com ↗</a>
+          <a href="/cdn-cgi/l/email-protection#0e77617b4e6b636f6762206d6163" class="link-arrow"><span class="__cf_email__" data-cfemail="9be2f4eedbfef6faf2f7b5f8f4f6">[email&#160;protected]</span> ↗</a>
           <a href="https://github.com/yourusername" class="link-arrow" target="_blank">GitHub ↗</a>
           <a href="https://linkedin.com/in/yourprofile" class="link-arrow" target="_blank">LinkedIn ↗</a>
         </div>
@@ -116,11 +122,4 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Your Name. Built by hand.</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- FOOTER --
