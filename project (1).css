@@ -1,0 +1,234 @@
+/* ============================================
+   PROJECT PAGES — project.css
+   ============================================ */
+
+/* Back bar */
+.back-bar {
+  padding: 0.85rem 2rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--accent-dark); }
+
+/* ============================================
+   PROJECT HERO
+   ============================================ */
+.project-hero {
+  padding: 5rem 2rem 4rem;
+  background: var(--header-bg);
+  background-image:
+    radial-gradient(ellipse at 10% 60%, rgba(181,101,29,0.12) 0%, transparent 55%);
+  border-bottom: 4px solid var(--accent);
+}
+
+.project-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: var(--header-text);
+}
+
+.project-tagline {
+  font-size: 1.1rem;
+  color: var(--header-muted);
+  max-width: 560px;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.project-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Ghost button variant */
+.btn-ghost {
+  background: transparent;
+  border-color: var(--header-muted);
+  color: var(--header-muted);
+}
+
+.btn-ghost:hover {
+  background: rgba(181,101,29,0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ============================================
+   SCREENSHOT
+   ============================================ */
+.screenshot-wrap {
+  padding: 2.5rem 2rem;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+}
+
+.screenshot-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  background: var(--bg);
+}
+
+.screenshot-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* ============================================
+   PROJECT BODY
+   ============================================ */
+.project-body {
+  padding: 4rem 2rem;
+}
+
+.project-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+}
+
+/* Sidebar */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-top: 0.25rem;
+}
+
+.detail-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  border-left: 2px solid var(--accent);
+  padding-left: 0.5rem;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: var(--text);
+  padding-left: 0.75rem;
+}
+
+.tech-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-left: 0.75rem;
+}
+
+.tech-list li {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* Write-up */
+.project-writeup h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-writeup h2:first-child { margin-top: 0; }
+
+.project-writeup p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ============================================
+   NEXT PROJECT
+   ============================================ */
+.next-project {
+  padding: 3rem 2rem;
+  background: var(--header-bg);
+  border-top: 3px solid var(--accent);
+}
+
+.next-project .detail-label {
+  border-left-color: var(--header-muted);
+  color: var(--header-muted);
+}
+
+.next-link {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--header-text);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.next-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 700px) {
+  .project-hero { padding: 3rem 1.5rem 2.5rem; }
+
+  .project-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .project-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .project-body { padding: 2.5rem 1.5rem; }
+  .next-project { padding: 2rem 1.5rem; }
+  .back-bar { padding: 0.75rem 1.5rem; }
+
+  .project-cta { flex-direction: column; }
+  .project-cta .btn { text-align: center; }
+}

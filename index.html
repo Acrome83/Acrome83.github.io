@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">YN</span>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Hello, I'm</p>
+      <h1>Your Name</h1>
+      <p class="hero-sub">Developer &amp; Designer based in [City]</p>
+      <a href="#projects" class="btn">View my work</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container two-col">
+      <div class="section-label">About</div>
+      <div class="section-content">
+        <p>
+          I'm a developer who cares about clean code and thoughtful design.
+          I enjoy building things that are simple, fast, and useful.
+        </p>
+        <p>
+          When I'm not coding I'm [hobby], [hobby], or reading about [interest].
+        </p>
+        <ul class="skills">
+          <li>HTML / CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>React</li>
+          <li>Git / GitHub</li>
+          <li>Figma</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section section-alt">
+    <div class="container">
+      <div class="section-label">Projects</div>
+      <div class="project-grid">
+
+        <article class="project-card" onclick="location.href='project-one.html'" style="cursor:pointer;">
+          <div class="project-meta">
+            <span class="project-tag">Web</span>
+            <span class="project-year">2025</span>
+          </div>
+          <h3><a href="project-one.html">Project One</a></h3>
+          <p>A short description of what this project does and why you built it.</p>
+          <div class="project-links">
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">Live site ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="project-one.html" class="link-arrow">Read more →</a>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="location.href='project-two.html'" style="cursor:pointer;">
+          <div class="project-meta">
+            <span class="project-tag">App</span>
+            <span class="project-year">2025</span>
+          </div>
+          <h3><a href="project-two.html">Project Two</a></h3>
+          <p>A short description of what this project does and why you built it.</p>
+          <div class="project-links">
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">Live site ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="project-two.html" class="link-arrow">Read more →</a>
+          </div>
+        </article>
+
+        <article class="project-card" onclick="location.href='project-three.html'" style="cursor:pointer;">
+          <div class="project-meta">
+            <span class="project-tag">Tool</span>
+            <span class="project-year">2024</span>
+          </div>
+          <h3><a href="project-three.html">Project Three</a></h3>
+          <p>A short description of what this project does and why you built it.</p>
+          <div class="project-links">
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">Live site ↗</a>
+            <a href="#" class="link-arrow" onclick="event.stopPropagation()">GitHub ↗</a>
+            <a href="project-three.html" class="link-arrow">Read more →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container two-col">
+      <div class="section-label">Contact</div>
+      <div class="section-content">
+        <p>I'm open to opportunities, collaborations, or just a chat.</p>
+        <div class="contact-links">
+          <a href="/cdn-cgi/l/email-protection#0e77617b4e6b636f6762206d6163" class="link-arrow"><span class="__cf_email__" data-cfemail="9be2f4eedbfef6faf2f7b5f8f4f6">[email&#160;protected]</span> ↗</a>
+          <a href="https://github.com/yourusername" class="link-arrow" target="_blank">GitHub ↗</a>
+          <a href="https://linkedin.com/in/yourprofile" class="link-arrow" target="_blank">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER --
