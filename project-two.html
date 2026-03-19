@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Two — Your Name</title>
+  <title>Quote Generator — Your Name</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
       --radius:      6px;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
 
@@ -47,41 +47,89 @@
     .back-link { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
     .back-link:hover { color: var(--accent-dark); }
 
-    /* PROJECT HERO */
-    .project-hero { padding: 5rem 2rem 4rem; background: var(--header-bg); border-bottom: 4px solid var(--accent); }
-    .project-hero-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
-    .project-tag { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--accent); color: #fff; padding: 0.2rem 0.65rem; border-radius: 3px; }
-    .project-year { font-size: 0.82rem; color: var(--header-muted); font-style: italic; }
-    .project-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: var(--header-text); }
-    .project-tagline { font-size: 1.1rem; color: var(--header-muted); max-width: 560px; margin-bottom: 2rem; font-style: italic; }
-    .project-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 0.75rem 1.75rem; background: var(--accent); color: #fff; border: 2px solid var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius); transition: background 0.2s, border-color 0.2s; }
+    /* HERO */
+    .hero { padding: 4rem 2rem 3rem; background: var(--header-bg); background-image: radial-gradient(ellipse at 20% 50%, rgba(181,101,29,0.15) 0%, transparent 60%); border-bottom: 4px solid var(--accent); text-align: center; }
+    .eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--header-muted); margin-bottom: 0.75rem; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 4rem); font-weight: 700; color: var(--header-text); line-height: 1.1; margin-bottom: 0.75rem; }
+    .hero p.sub { font-size: 1rem; color: var(--header-muted); font-style: italic; }
+
+    /* MAIN QUOTE AREA */
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; }
+    .quote-wrap { max-width: 760px; width: 100%; }
+
+    /* CATEGORY TABS */
+    .category-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; justify-content: center; }
+    .cat-btn { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.35rem 1rem; border: 1.5px solid var(--border); border-radius: 4px; background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.2s; }
+    .cat-btn:hover, .cat-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* QUOTE CARD */
+    .quote-card {
+      background: var(--header-bg);
+      border: 1.5px solid rgba(181,101,29,0.3);
+      border-left: 5px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 3rem 3rem 2.5rem;
+      position: relative;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 6rem;
+      color: var(--accent);
+      opacity: 0.25;
+      line-height: 1;
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+    }
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--header-text);
+      line-height: 1.65;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      padding-top: 1rem;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    .quote-text.fade { opacity: 0; }
+    .quote-author {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--header-muted);
+      transition: opacity 0.3s ease;
+    }
+    .quote-author.fade { opacity: 0; }
+    .quote-category-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.15rem 0.6rem;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+
+    /* ACTIONS */
+    .actions { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .btn { display: inline-block; padding: 0.75rem 1.75rem; background: var(--accent); color: #fff; border: 2px solid var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius); cursor: pointer; font-family: var(--font-sans); transition: background 0.2s, border-color 0.2s; }
     .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-    .btn-ghost { background: transparent; border-color: var(--header-muted); color: var(--header-muted); }
-    .btn-ghost:hover { background: rgba(181,101,29,0.15); border-color: var(--accent); color: var(--accent); }
+    .btn-ghost { background: transparent; color: var(--accent); border-color: var(--border); }
+    .btn-ghost:hover { background: var(--bg-alt); border-color: var(--accent); }
+    .quote-count { font-size: 0.75rem; color: var(--muted); font-style: italic; }
 
-    /* SCREENSHOT */
-    .screenshot-wrap { padding: 2.5rem 2rem; background: var(--bg-alt); border-bottom: 1px solid var(--border); }
-    .screenshot-placeholder { width: 100%; aspect-ratio: 16/9; border: 2px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.82rem; font-style: italic; background: var(--bg); }
-
-    /* PROJECT BODY */
-    .project-body { padding: 4rem 2rem; background: var(--bg); }
-    .container { max-width: var(--max-w); margin: 0 auto; }
-    .project-layout { display: grid; grid-template-columns: 200px 1fr; gap: 4rem; }
-    .project-details { display: flex; flex-direction: column; gap: 1.75rem; }
-    .detail-label { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.4rem; border-left: 2px solid var(--accent); padding-left: 0.5rem; }
-    .detail-value { font-size: 0.95rem; color: var(--text); padding-left: 0.75rem; }
-    .tech-list { display: flex; flex-direction: column; gap: 0.3rem; padding-left: 0.75rem; }
-    .tech-list li { font-size: 0.9rem; color: var(--text); }
-    .project-writeup h2 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--text); padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-    .project-writeup h2:first-child { margin-top: 0; }
-    .project-writeup p { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.8; }
-
-    /* NEXT PROJECT */
-    .next-project { padding: 3rem 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); }
-    .next-project .detail-label { border-left-color: var(--header-muted); color: var(--header-muted); }
-    .next-link { font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; color: var(--header-text); border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; display: inline-block; margin-top: 0.5rem; font-style: italic; }
-    .next-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    /* TOAST */
+    .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--header-bg); color: var(--header-text); padding: 0.85rem 1.5rem; border-left: 3px solid var(--accent); border-radius: var(--radius); font-size: 0.88rem; font-weight: 700; opacity: 0; transform: translateY(10px); transition: opacity 0.3s, transform 0.3s; pointer-events: none; z-index: 999; }
+    .toast.show { opacity: 1; transform: translateY(0); }
 
     /* FOOTER */
     footer { padding: 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); text-align: center; font-size: 0.82rem; color: var(--header-muted); font-style: italic; }
@@ -92,20 +140,18 @@
       .nav-links { display: none; position: fixed; inset: 0; background: var(--header-bg); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; z-index: 150; }
       .nav-links.open { display: flex; }
       .nav-links a { font-size: 1.2rem; font-family: var(--font-serif); color: var(--header-text); font-style: italic; }
-      .project-hero { padding: 3rem 1.5rem 2.5rem; }
-      .project-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .project-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-      .project-body { padding: 2.5rem 1.5rem; }
-      .next-project { padding: 2rem 1.5rem; }
-      .project-cta { flex-direction: column; }
-      .project-cta .btn { text-align: center; }
+      .quote-card { padding: 2rem 1.5rem; }
+      .actions { flex-direction: column; align-items: stretch; }
+      .actions .btn { text-align: center; }
+      main { padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
-    <span class="nav-logo">CA</span>
+    <span class="nav-logo">YN</span>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -120,65 +166,54 @@
     <a href="index.html#projects" class="back-link">← Back to projects</a>
   </div>
 
-  <header class="project-hero">
-    <div class="container">
-      <div class="project-hero-meta">
-        <span class="project-tag">App</span>
-        <span class="project-year">2025</span>
-      </div>
-      <h1>Project Two</h1>
-      <p class="project-tagline">A one-line summary of what this project does.</p>
-      <div class="project-cta">
-        <a href="#" class="btn" target="_blank">Live site ↗</a>
-        <a href="#" class="btn btn-ghost" target="_blank">GitHub ↗</a>
-      </div>
-    </div>
+  <!-- HERO -->
+  <header class="hero">
+    <p class="eyebrow">Project Two</p>
+    <h1>Random Quote Generator</h1>
+    <p class="sub">A new perspective, one click at a time.</p>
   </header>
 
-  <div class="screenshot-wrap">
-    <div class="container">
-      <div class="screenshot-placeholder">
-        <span>Screenshot / Preview Image</span>
-      </div>
-    </div>
-  </div>
+  <!-- MAIN -->
+  <main>
+    <div class="quote-wrap">
 
-  <main class="project-body">
-    <div class="container project-layout">
-      <aside class="project-details">
+      <!-- CATEGORY TABS -->
+      <div class="category-bar">
+        <button class="cat-btn active" onclick="setCategory('all', this)">All</button>
+        <button class="cat-btn" onclick="setCategory('motivation', this)">Motivation</button>
+        <button class="cat-btn" onclick="setCategory('wisdom', this)">Wisdom</button>
+        <button class="cat-btn" onclick="setCategory('coding', this)">Coding</button>
+        <button class="cat-btn" onclick="setCategory('life', this)">Life</button>
+      </div>
+
+      <!-- QUOTE CARD -->
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
         <div>
-          <p class="detail-label">Tech Stack</p>
-          <ul class="tech-list">
-            <li>React</li>
-            <li>JavaScript</li>
-            <li>CSS</li>
-          </ul>
+          <span class="quote-category-tag" id="quoteTag">Motivation</span>
+          <p class="quote-text" id="quoteText">Loading your quote...</p>
+          <p class="quote-author" id="quoteAuthor">— Author</p>
         </div>
-        <div><p class="detail-label">Type</p><p class="detail-value">Personal project</p></div>
-        <div><p class="detail-label">Year</p><p class="detail-value">2025</p></div>
-        <div><p class="detail-label">Status</p><p class="detail-value">Live</p></div>
-      </aside>
-      <article class="project-writeup">
-        <h2>Overview</h2>
-        <p>Describe what this project is and what problem it solves. Keep it conversational — write it like you're explaining it to a friend.</p>
-        <h2>Why I built it</h2>
-        <p>Explain your motivation. Was it to learn a new skill? Solve a personal problem? A school or work project?</p>
-        <h2>What I learned</h2>
-        <p>Talk about the challenges you faced and what you took away from building this.</p>
-      </article>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+        <span class="quote-count" id="quoteCount"></span>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <button class="btn btn-ghost" onclick="copyQuote()">Copy Quote</button>
+          <button class="btn" onclick="newQuote()">New Quote →</button>
+        </div>
+      </div>
+
     </div>
   </main>
 
-  <div class="next-project">
-    <div class="container">
-      <p class="detail-label">Next project</p>
-      <a href="project-three.html" class="next-link">Project Three →</a>
-    </div>
-  </div>
-
   <footer><p>© 2026 Your Name. Built by hand.</p></footer>
 
+  <div class="toast" id="toast"></div>
+
   <script>
+    // Hamburger
     const toggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => {
@@ -186,6 +221,96 @@
       toggle.classList.toggle('open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        toggle.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    const quotes = [
+      { text: "The secret of getting ahead is getting started.", author: "Mark Twain", category: "motivation" },
+      { text: "It always seems impossible until it's done.", author: "Nelson Mandela", category: "motivation" },
+      { text: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", category: "motivation" },
+      { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt", category: "motivation" },
+      { text: "Hard work beats talent when talent doesn't work hard.", author: "Tim Notke", category: "motivation" },
+      { text: "The only way to do great work is to love what you do.", author: "Steve Jobs", category: "motivation" },
+      { text: "The journey of a thousand miles begins with one step.", author: "Lao Tzu", category: "wisdom" },
+      { text: "In the middle of every difficulty lies opportunity.", author: "Albert Einstein", category: "wisdom" },
+      { text: "Knowing yourself is the beginning of all wisdom.", author: "Aristotle", category: "wisdom" },
+      { text: "Life is what happens when you're busy making other plans.", author: "John Lennon", category: "wisdom" },
+      { text: "The measure of intelligence is the ability to change.", author: "Albert Einstein", category: "wisdom" },
+      { text: "Not all those who wander are lost.", author: "J.R.R. Tolkien", category: "wisdom" },
+      { text: "First, solve the problem. Then, write the code.", author: "John Johnson", category: "coding" },
+      { text: "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.", author: "Martin Fowler", category: "coding" },
+      { text: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde", category: "coding" },
+      { text: "The best error message is the one that never shows up.", author: "Thomas Fuchs", category: "coding" },
+      { text: "Code is like humor. When you have to explain it, it's bad.", author: "Cory House", category: "coding" },
+      { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds", category: "coding" },
+      { text: "Life is short — smile while you still have teeth.", author: "Unknown", category: "life" },
+      { text: "You only live once, but if you do it right, once is enough.", author: "Mae West", category: "life" },
+      { text: "Be yourself; everyone else is already taken.", author: "Oscar Wilde", category: "life" },
+      { text: "In three words I can sum up everything I've learned about life: it goes on.", author: "Robert Frost", category: "life" },
+      { text: "To live is the rarest thing in the world. Most people just exist.", author: "Oscar Wilde", category: "life" },
+    ];
+
+    let currentCategory = 'all';
+    let lastIndex = -1;
+
+    function setCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      newQuote();
+    }
+
+    function getFiltered() {
+      return currentCategory === 'all' ? quotes : quotes.filter(q => q.category === currentCategory);
+    }
+
+    function newQuote() {
+      const filtered = getFiltered();
+      let idx;
+      do { idx = Math.floor(Math.random() * filtered.length); } while (idx === lastIndex && filtered.length > 1);
+      lastIndex = idx;
+      const q = filtered[idx];
+
+      const textEl = document.getElementById('quoteText');
+      const authorEl = document.getElementById('quoteAuthor');
+      const tagEl = document.getElementById('quoteTag');
+      const countEl = document.getElementById('quoteCount');
+
+      textEl.classList.add('fade');
+      authorEl.classList.add('fade');
+
+      setTimeout(() => {
+        textEl.textContent = q.text;
+        authorEl.textContent = '— ' + q.author;
+        tagEl.textContent = q.category.charAt(0).toUpperCase() + q.category.slice(1);
+        countEl.textContent = filtered.length + ' quotes in this category';
+        textEl.classList.remove('fade');
+        authorEl.classList.remove('fade');
+      }, 300);
+    }
+
+    function copyQuote() {
+      const text = document.getElementById('quoteText').textContent;
+      const author = document.getElementById('quoteAuthor').textContent;
+      navigator.clipboard.writeText(`"${text}" ${author}`).then(() => {
+        showToast('Quote copied to clipboard!');
+      });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // Load first quote on page load
+    newQuote();
   </script>
 </body>
 </html>
