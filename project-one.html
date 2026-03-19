@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project One — Your Name</title>
+  <title>Skills & Specialization — Your Name</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
@@ -47,41 +47,63 @@
     .back-link { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
     .back-link:hover { color: var(--accent-dark); }
 
-    /* PROJECT HERO */
-    .project-hero { padding: 5rem 2rem 4rem; background: var(--header-bg); border-bottom: 4px solid var(--accent); }
-    .project-hero-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
-    .project-tag { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; background: var(--accent); color: #fff; padding: 0.2rem 0.65rem; border-radius: 3px; }
-    .project-year { font-size: 0.82rem; color: var(--header-muted); font-style: italic; }
-    .project-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; margin-bottom: 1rem; color: var(--header-text); }
-    .project-tagline { font-size: 1.1rem; color: var(--header-muted); max-width: 560px; margin-bottom: 2rem; font-style: italic; }
-    .project-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    /* HERO */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      background: var(--header-bg);
+      background-image: radial-gradient(ellipse at 15% 60%, rgba(181,101,29,0.18) 0%, transparent 55%);
+      border-bottom: 4px solid var(--accent);
+    }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--header-muted); margin-bottom: 0.75rem; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; color: var(--header-text); line-height: 1.05; margin-bottom: 0.75rem; }
+    .hero p.sub { font-size: 1.1rem; color: var(--header-muted); font-style: italic; max-width: 580px; }
+
+    /* SECTION SHARED */
+    .section { padding: 4.5rem 2rem; }
+    .section-alt { background: var(--bg-alt); }
+    .section-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); border-left: 3px solid var(--accent); padding-left: 0.6rem; margin-bottom: 2.5rem; }
+
+    /* SPECIALIZATIONS */
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+    .spec-card { background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 2rem 1.75rem 1.75rem; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+    .spec-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+    .spec-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(43,31,20,0.13); }
+    .spec-num { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 1rem; font-style: italic; }
+    .spec-card h3 { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .spec-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* SKILL BARS */
+    .skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 4rem; max-width: 900px; }
+    .skill-item {}
+    .skill-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+    .skill-name { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); }
+    .skill-pct { font-size: 0.82rem; color: var(--accent); font-weight: 700; font-family: var(--font-serif); font-style: italic; }
+    .bar-bg { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--accent); border-radius: 2px; width: 0; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+
+    /* TOOLS GRID */
+    .tools-wrap { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
+    .tool-card { background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.75rem; transition: border-color 0.2s, transform 0.15s; }
+    .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tool-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .tool-card span { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+    /* EXPERIENCE TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; }
+    .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; padding-bottom: 2.5rem; position: relative; }
+    .timeline-item:not(:last-child)::after { content: ''; position: absolute; left: 120px; top: 8px; bottom: 0; width: 1px; background: var(--border); transform: translateX(calc(2rem / 2)); }
+    .timeline-year { font-size: 0.78rem; font-weight: 700; color: var(--accent); text-align: right; padding-top: 3px; font-family: var(--font-serif); font-style: italic; }
+    .timeline-dot { position: absolute; left: 120px; top: 6px; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; transform: translateX(calc(2rem / 2 - 4px)); }
+    .timeline-body h3 { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .timeline-body p { font-size: 0.9rem; color: var(--muted); }
+
+    /* CTA */
+    .cta-band { padding: 4rem 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); text-align: center; }
+    .cta-band h2 { font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2.5rem); color: var(--header-text); margin-bottom: 0.75rem; font-style: italic; }
+    .cta-band p { color: var(--header-muted); margin-bottom: 2rem; font-size: 1rem; }
     .btn { display: inline-block; padding: 0.75rem 1.75rem; background: var(--accent); color: #fff; border: 2px solid var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius); transition: background 0.2s, border-color 0.2s; }
     .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-    .btn-ghost { background: transparent; border-color: var(--header-muted); color: var(--header-muted); }
-    .btn-ghost:hover { background: rgba(181,101,29,0.15); border-color: var(--accent); color: var(--accent); }
-
-    /* SCREENSHOT */
-    .screenshot-wrap { padding: 2.5rem 2rem; background: var(--bg-alt); border-bottom: 1px solid var(--border); }
-    .screenshot-placeholder { width: 100%; aspect-ratio: 16/9; border: 2px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.82rem; font-style: italic; background: var(--bg); }
-
-    /* PROJECT BODY */
-    .project-body { padding: 4rem 2rem; background: var(--bg); }
-    .container { max-width: var(--max-w); margin: 0 auto; }
-    .project-layout { display: grid; grid-template-columns: 200px 1fr; gap: 4rem; }
-    .project-details { display: flex; flex-direction: column; gap: 1.75rem; }
-    .detail-label { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.4rem; border-left: 2px solid var(--accent); padding-left: 0.5rem; }
-    .detail-value { font-size: 0.95rem; color: var(--text); padding-left: 0.75rem; }
-    .tech-list { display: flex; flex-direction: column; gap: 0.3rem; padding-left: 0.75rem; }
-    .tech-list li { font-size: 0.9rem; color: var(--text); }
-    .project-writeup h2 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; color: var(--text); padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
-    .project-writeup h2:first-child { margin-top: 0; }
-    .project-writeup p { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.8; }
-
-    /* NEXT PROJECT */
-    .next-project { padding: 3rem 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); }
-    .next-project .detail-label { border-left-color: var(--header-muted); color: var(--header-muted); }
-    .next-link { font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; color: var(--header-text); border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; display: inline-block; margin-top: 0.5rem; font-style: italic; }
-    .next-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
     /* FOOTER */
     footer { padding: 2rem; background: var(--header-bg); border-top: 3px solid var(--accent); text-align: center; font-size: 0.82rem; color: var(--header-muted); font-style: italic; }
@@ -92,18 +114,18 @@
       .nav-links { display: none; position: fixed; inset: 0; background: var(--header-bg); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; z-index: 150; }
       .nav-links.open { display: flex; }
       .nav-links a { font-size: 1.2rem; font-family: var(--font-serif); color: var(--header-text); font-style: italic; }
-      .project-hero { padding: 3rem 1.5rem 2.5rem; }
-      .project-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .project-details { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-      .project-body { padding: 2.5rem 1.5rem; }
-      .next-project { padding: 2rem 1.5rem; }
-      .project-cta { flex-direction: column; }
-      .project-cta .btn { text-align: center; }
+      .hero { padding: 3rem 1.5rem 2.5rem; }
+      .section { padding: 3rem 1.5rem; }
+      .spec-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+      .timeline-item:not(:last-child)::after { left: 80px; }
+      .timeline-dot { left: 80px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <span class="nav-logo">YN</span>
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -120,65 +142,164 @@
     <a href="index.html#projects" class="back-link">← Back to projects</a>
   </div>
 
-  <header class="project-hero">
+  <!-- HERO -->
+  <header class="hero">
     <div class="container">
-      <div class="project-hero-meta">
-        <span class="project-tag">Web</span>
-        <span class="project-year">2025</span>
-      </div>
-      <h1>Project One</h1>
-      <p class="project-tagline">A one-line summary of what this project does.</p>
-      <div class="project-cta">
-        <a href="#" class="btn" target="_blank">Live site ↗</a>
-        <a href="#" class="btn btn-ghost" target="_blank">GitHub ↗</a>
-      </div>
+      <p class="eyebrow">Skills & Specialization</p>
+      <h1>What I Bring<br>to the Table</h1>
+      <p class="sub">A breakdown of my technical skills, areas of focus, and the tools I work with every day.</p>
     </div>
   </header>
 
-  <div class="screenshot-wrap">
+  <!-- SPECIALIZATIONS -->
+  <section class="section">
     <div class="container">
-      <div class="screenshot-placeholder">
-        <span>Screenshot / Preview Image</span>
+      <p class="section-label">Areas of focus</p>
+      <div class="spec-grid">
+
+        <div class="spec-card">
+          <div class="spec-num">01</div>
+          <h3>Software Development</h3>
+          <p>Building clean, maintainable code across front-end and back-end systems. I care about performance, readability, and writing software that lasts.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num">02</div>
+          <h3>Game Development</h3>
+          <p>Designing and building games from the ground up — from mechanics and logic to UI and player experience. My long-term passion and growing specialty.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num">03</div>
+          <h3>Problem Solving</h3>
+          <p>Breaking down complex challenges into clear, manageable steps. I approach every problem methodically and enjoy finding elegant solutions.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num">04</div>
+          <h3>UI & Design Thinking</h3>
+          <p>Creating interfaces that are intuitive and visually clean. I bridge the gap between how something works and how it feels to use.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num">05</div>
+          <h3>Collaboration</h3>
+          <p>Working well in teams, communicating clearly, and lifting the people around me. I bring a positive attitude and high standards to every group project.</p>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-num">06</div>
+          <h3>Continuous Learning</h3>
+          <p>Staying current with new tools, languages, and techniques. I treat every project as a chance to grow and add new skills to my toolkit.</p>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <main class="project-body">
-    <div class="container project-layout">
-      <aside class="project-details">
-        <div>
-          <p class="detail-label">Tech Stack</p>
-          <ul class="tech-list">
-            <li>HTML / CSS</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-          </ul>
-        </div>
-        <div><p class="detail-label">Type</p><p class="detail-value">Personal project</p></div>
-        <div><p class="detail-label">Year</p><p class="detail-value">2025</p></div>
-        <div><p class="detail-label">Status</p><p class="detail-value">Live</p></div>
-      </aside>
-      <article class="project-writeup">
-        <h2>Overview</h2>
-        <p>Describe what this project is and what problem it solves. Keep it conversational — write it like you're explaining it to a friend.</p>
-        <h2>Why I built it</h2>
-        <p>Explain your motivation. Was it to learn a new skill? Solve a personal problem? A school or work project?</p>
-        <h2>What I learned</h2>
-        <p>Talk about the challenges you faced and what you took away from building this.</p>
-      </article>
-    </div>
-  </main>
-
-  <div class="next-project">
+  <!-- SKILL BARS -->
+  <section class="section section-alt">
     <div class="container">
-      <p class="detail-label">Next project</p>
-      <a href="project-two.html" class="next-link">Project Two →</a>
+      <p class="section-label">Technical proficiency</p>
+      <div class="skills-wrapper" id="skillList">
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">HTML / CSS</span><span class="skill-pct">90%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">80%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">80%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Game Development</span><span class="skill-pct">50%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="50"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Lua</span><span class="skill-pct">55%</span></div>
+          <div class="bar-bg"><div class="bar-fill" data-width="55"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label">Tools & technologies</p>
+      <div class="tools-wrap">
+        <div class="tool-card"><div class="tool-dot"></div><span>VS Code</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>Git</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>GitHub</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>Node.js</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>Python</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>Unity</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>HTML5</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>CSS3</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>JavaScript</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>Lua</span></div>
+        <div class="tool-card"><div class="tool-dot"></div><span>Blender</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE TIMELINE -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label">Experience & milestones</p>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span class="timeline-year">2024</span>
+          <div class="timeline-dot"></div>
+          <div class="timeline-body">
+            <h3>First Game Project — Roblox</h3>
+            <p>Started building my first game in Roblox using Lua. Still actively working on it — haven't finished or switched projects. It's been my main hands-on introduction to game development and scripting.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2023</span>
+          <div class="timeline-dot"></div>
+          <div class="timeline-body">
+            <h3>Learned Web Development</h3>
+            <p>Completed projects in HTML, CSS, and JavaScript. Started building real things for the web.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-year">2022</span>
+          <div class="timeline-dot"></div>
+          <div class="timeline-body">
+            <h3>Started Coding</h3>
+            <p>Wrote my first lines of code and immediately knew this was something I wanted to pursue seriously.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>Want to work together?</h2>
+      <p>I'm always open to new opportunities and collaborations.</p>
+      <a href="index.html#contact" class="btn">Get in touch</a>
     </div>
   </div>
 
   <footer><p>© 2026 Your Name. Built by hand.</p></footer>
 
   <script>
+    // Hamburger
     const toggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-links');
     toggle.addEventListener('click', () => {
@@ -186,6 +307,25 @@
       toggle.classList.toggle('open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        toggle.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Animate skill bars when they scroll into view
+    const bars = document.querySelectorAll('.bar-fill');
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.width + '%';
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    bars.forEach(bar => barObserver.observe(bar));
   </script>
 </body>
 </html>
