@@ -176,6 +176,255 @@
     </div>
   </div>
 
+
+<section class="support-section">
+  <div class="support-container">
+
+    <div class="support-header">
+      <p class="support-eyebrow">Support the Project</p>
+      <h2>Like what you see?</h2>
+      <p class="support-sub">Grab some merch or help keep this project alive.</p>
+    </div>
+
+    <!-- MERCH GRID -->
+    <div class="merch-grid">
+
+      <div class="merch-card">
+        <div class="merch-img">👕</div>
+        <div class="merch-info">
+          <h3>Classic Tee</h3>
+          <p>Soft cotton tee with the project logo. Available in S–XL.</p>
+          <div class="merch-footer">
+            <span class="merch-price">$24.99</span>
+            <a href="#" class="merch-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img">🧢</div>
+        <div class="merch-info">
+          <h3>Snapback Hat</h3>
+          <p>Embroidered logo, one size fits most. Ships in 3–5 days.</p>
+          <div class="merch-footer">
+            <span class="merch-price">$19.99</span>
+            <a href="#" class="merch-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img">☕</div>
+        <div class="merch-info">
+          <h3>Ceramic Mug</h3>
+          <p>11oz mug, dishwasher safe. Great for late-night coding sessions.</p>
+          <div class="merch-footer">
+            <span class="merch-price">$14.99</span>
+            <a href="#" class="merch-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="merch-card">
+        <div class="merch-img">🎒</div>
+        <div class="merch-info">
+          <h3>Sticker Pack</h3>
+          <p>5 premium vinyl stickers. Weatherproof and laptop-ready.</p>
+          <div class="merch-footer">
+            <span class="merch-price">$7.99</span>
+            <a href="#" class="merch-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OTHER WAYS TO SUPPORT -->
+    <div class="other-support">
+      <p class="support-eyebrow">Other ways to help</p>
+      <div class="support-options">
+
+        <a href="#" class="support-option">
+          <span class="support-icon">☕</span>
+          <div>
+            <strong>Buy me a coffee</strong>
+            <p>A one-time tip to keep me going.</p>
+          </div>
+        </a>
+
+        <a href="#" class="support-option">
+          <span class="support-icon">⭐</span>
+          <div>
+            <strong>Star on GitHub</strong>
+            <p>Free and helps more people find this.</p>
+          </div>
+        </a>
+
+        <a href="#" class="support-option">
+          <span class="support-icon">🔗</span>
+          <div>
+            <strong>Share the project</strong>
+            <p>Tell a friend or post about it online.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── Support Section ── */
+  .support-section {
+    padding: 5rem 2rem;
+    background: #ede0cc;
+    border-top: 1px solid #d4b896;
+  }
+  .support-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .support-header {
+    margin-bottom: 3rem;
+  }
+  .support-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #b5651d;
+    border-left: 3px solid #b5651d;
+    padding-left: 0.6rem;
+    margin-bottom: 0.75rem;
+  }
+  .support-header h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #2b1f14;
+    margin-bottom: 0.5rem;
+  }
+  .support-sub {
+    color: #7a6249;
+    font-size: 1.05rem;
+  }
+
+  /* Merch Grid */
+  .merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 4rem;
+  }
+  .merch-card {
+    background: #f5ede0;
+    border: 1.5px solid #d4b896;
+    border-top: 3px solid #b5651d;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .merch-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(43,31,20,0.15);
+  }
+  .merch-img {
+    background: #2b1f14;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .merch-info {
+    padding: 1.25rem;
+  }
+  .merch-info h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2b1f14;
+    margin-bottom: 0.4rem;
+  }
+  .merch-info p {
+    font-size: 0.88rem;
+    color: #7a6249;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  .merch-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .merch-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #b5651d;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .merch-btn {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: #b5651d;
+    color: #fff;
+    padding: 0.45rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .merch-btn:hover { background: #8b4513; }
+
+  /* Other Support */
+  .other-support { border-top: 1px solid #d4b896; padding-top: 3rem; }
+  .other-support .support-eyebrow { margin-bottom: 1.5rem; }
+  .support-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .support-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #f5ede0;
+    border: 1.5px solid #d4b896;
+    border-radius: 6px;
+    color: #2b1f14;
+    transition: border-color 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+  .support-option:hover {
+    border-color: #b5651d;
+    transform: translateY(-2px);
+  }
+  .support-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .support-option strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2b1f14;
+    margin-bottom: 0.2rem;
+  }
+  .support-option p {
+    font-size: 0.85rem;
+    color: #7a6249;
+    margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .support-section { padding: 3rem 1.5rem; }
+    .merch-grid { grid-template-columns: 1fr 1fr; }
+    .support-options { grid-template-columns: 1fr; }
+  }
+</style>
+
   <footer><p>© 2026 Your Name. Built by hand.</p></footer>
 
   <script>
